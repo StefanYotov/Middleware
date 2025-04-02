@@ -2,10 +2,12 @@
 
 namespace Middleware.Web.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     namespace MyApi.Controllers
     {
+        [Authorize]
         [ApiController]
         [Route("api/[controller]")]
         public class TestController : ControllerBase
