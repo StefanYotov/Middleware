@@ -3,7 +3,9 @@
 namespace Middleware.Web.Controllers
 {
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Middelware.Test;
 
     namespace MyApi.Controllers
     {
@@ -14,6 +16,7 @@ namespace Middleware.Web.Controllers
         {
             // GET api/test/badrequest?searchValue=somevalue
             [HttpGet("badrequest")]
+            [ProducesResponseType(typeof(BadRequest), 400)]
             public IActionResult GetBadRequest([FromQuery] string searchValue)
             {
                 if (string.IsNullOrEmpty(searchValue))

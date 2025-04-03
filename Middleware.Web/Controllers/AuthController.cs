@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -40,6 +41,14 @@ namespace Middleware.Web.Controllers
             {
                 token = new JwtSecurityTokenHandler().WriteToken(token)
             });
+        }
+
+        [Authorize]
+        [HttpGet("data")]
+        public IActionResult GetSecureData()
+        {
+            // The user is authenticated and User.Identity.Name is available
+            return Ok(new { message = $"Hello {User.Identity.Name}, you have access to secure data!" });
         }
     }
 

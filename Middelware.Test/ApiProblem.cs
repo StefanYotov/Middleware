@@ -11,12 +11,12 @@
         public string Path { get; set; }
     }
 
-    public class BadRequestProblem : ApiProblem
+    public class BadRequest : ApiProblem
     {
         public string SearchedBy { get; set; }
         public string SearchedFor { get; set; }
 
-        public BadRequestProblem(string user, string httpMethod, string path, string searchedBy, string searchedFor, string detail)
+        public BadRequest(string user, string httpMethod, string path, string searchedBy, string searchedFor, string detail)
         {
             Type = "https://httpstatuses.com/400";
             Status = 400;

@@ -17,9 +17,9 @@ namespace Middelware.Test
                 : "Anonymous";
         }
 
-        public static BadRequestProblem CreateBadRequest(HttpContext context, string searchedBy, string searchedFor, string detail)
+        public static BadRequest CreateBadRequest(HttpContext context, string searchedBy, string searchedFor, string detail)
         {
-            return new BadRequestProblem(
+            return new BadRequest(
                 user: GetUsername(context),
                 httpMethod: context.Request.Method,
                 path: context.Request.Path,
